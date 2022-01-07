@@ -7,6 +7,8 @@ var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
 
+var indexRoutes = require('./routes/index');
+
 // load the env vars
 require('dotenv').config();
 
