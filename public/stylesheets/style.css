@@ -1,20 +1,42 @@
-.brand-logo {
-  margin-left: 15px;
+* {
+  font-family: Helvetica;
 }
 
-.card .card-content .card-title {
-  margin-bottom: 10px;
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #f0f0f0;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "nav"
+    "main"
 }
 
-#search-row form {
-  padding-top: 20px;
+a {
+  text-decoration: none;
 }
 
-.student-name {
-  position: relative;
-  top: -5px;
+body > nav {
+  grid-area: nav;
+  background-color: #ee1515;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
+  border-bottom: 4px solid #222224;
 }
 
-.collection-item form {
-  margin-top: -5px;
+nav > a {
+  margin: 20px;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+body > main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
