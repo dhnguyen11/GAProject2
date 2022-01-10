@@ -8,8 +8,7 @@ const teamSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    members: [Schema.Types.ObjectId],
-    game: String
+    members: [Schema.Types.ObjectId]
 }, {
     timestamps: true
 })

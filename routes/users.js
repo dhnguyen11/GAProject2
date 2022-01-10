@@ -2,7 +2,8 @@ const router = require('express').Router();
 const passport = require('passport');
 const usersCtrl = require('../controllers/users');
 
-// Route to create a new Team
+// Routes
+router.get('/', usersCtrl.landing)
 router.get('/:id/tickets/new', usersCtrl.newTeam);
 
 // OAuth logout route
