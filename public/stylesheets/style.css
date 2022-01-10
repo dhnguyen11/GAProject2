@@ -62,17 +62,38 @@ body > main {
   place-self: stretch;
   display: grid;
   min-height: 200px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 1fr 1fr 1fr;
   grid-template-areas: 
-    "name name name name name"
-    ". member1 member2 member3 ."
-    ". member4 member5 member6 ."
-    "delete delete . add add"
+    "name name name"
+    "member1 member2 member3"
+    "member4 member5 member6"
+    "delete . detail"
 }
 
 .team-preview > h2 {
   grid-area: name;
   place-self: stretch;
   text-align: center;
+}
+
+.button {
+  background-color: #ee1515; /* Green */
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  place-self: center;
+}
+
+.delete-btn {
+  grid-area: delete;
+}
+
+.detail-btn{
+  grid-area: detail;
 }
