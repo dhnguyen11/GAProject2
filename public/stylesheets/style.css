@@ -50,3 +50,29 @@ body > main {
   flex-direction: column;
   align-items: center;
 }
+
+#team-table {
+  display: grid;
+  grid-template-columns: 350px 350px 350px;
+  grid-gap: 10px;
+}
+
+.team-preview {
+  border: 1px solid black;
+  place-self: stretch;
+  display: grid;
+  min-height: 200px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr 1fr;
+  grid-template-areas: 
+    "name name name name name"
+    ". member1 member2 member3 ."
+    ". member4 member5 member6 ."
+    "delete delete . add add"
+}
+
+.team-preview > h2 {
+  grid-area: name;
+  place-self: stretch;
+  text-align: center;
+}
