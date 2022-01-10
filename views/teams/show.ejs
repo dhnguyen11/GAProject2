@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+<div id="member-table">
+    <% if (members.length) { %>
+        <% members.forEach(function(t) { %>
+            <div class="member-preview">
+            </div>
+        <% }); %>
+    <% } else { %>
+        <h2>No Members Yet</h2>
+    <% } %>
+</div>
+<%- include('../partials/footer') %>

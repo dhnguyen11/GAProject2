@@ -1,5 +1,6 @@
 const Team = require("../models/team");
 const User = require("../models/user");
+const Member = require("../models/member");
 
 module.exports = {
   new: newTeam,
@@ -49,8 +50,15 @@ function index(req, res) {
 
 function show(req, res) {
   if (req.user) {
-    Team.findById(req.params.id, function (err, team) {
-      res.send(team);
+    Team.findById(req.params.id)
+    .populate('members').exec(function(err, teamDocument) {
+        Member.find({_id: {$nin: teamDocument.members}}, function(err, membersDocument) {
+            res.render('teams/show', {
+                title: teamDocument.name,
+                team: teamDocument,
+                members: membersDocument
+            })
+        })
     });
   }
   else {

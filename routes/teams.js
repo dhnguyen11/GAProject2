@@ -6,7 +6,7 @@ const teamsCtrl = require('../controllers/teams');
 router.get('/users/:userId/teams/new', teamsCtrl.new);
 router.get('/users/:userId/teams', teamsCtrl.index);
 router.post('/users/:userId/teams/new', teamsCtrl.create);
-router.get('/users/:userId/teams/:id', teamsCtrl.show);
+router.get('/users/teams/:id', teamsCtrl.show);
 
 // OAuth logout route
 router.get('/logout', function(req, res){
