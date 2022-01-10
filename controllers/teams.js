@@ -5,6 +5,7 @@ module.exports = {
   new: newTeam,
   create,
   index,
+  show,
 };
 
 function newTeam(req, res) {
@@ -38,10 +39,21 @@ function index(req, res) {
       res.render("teams/index", {
         title: "My Teams",
         user: req.user,
-        teams: teams
+        teams: teams,
       });
     });
   } else {
     res.redirect("/");
+  }
+}
+
+function show(req, res) {
+  if (req.user) {
+    Team.findById(req.params.id, function (err, team) {
+      res.send(team);
+    });
+  }
+  else {
+      res.redirect("/");
   }
 }

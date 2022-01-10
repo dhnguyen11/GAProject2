@@ -5,7 +5,7 @@
             <div class="team-preview">
                 <h2><%= t.name %></h2>
                 <a class="button delete-btn" href="#">Delete Team</a>
-                <a class="button detail-btn" href="#">See Details</a>
+                <a class="button detail-btn" href="/users/<%= user._id %>/teams/<%= t._id %>">See Details</a>
             </div>
         <% }); %>
     <% } else { %>
