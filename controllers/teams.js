@@ -50,18 +50,16 @@ function index(req, res) {
 
 function show(req, res) {
   if (req.user) {
+    console.log(req.params);
     Team.findById(req.params.id)
-    .populate('members').exec(function(err, teamDocument) {
-        Member.find({_id: {$nin: teamDocument.members}}, function(err, membersDocument) {
-            res.render('teams/show', {
-                title: teamDocument.name,
-                team: teamDocument,
-                members: membersDocument
-            })
-        })
-    });
-  }
-  else {
-      res.redirect("/");
+      .populate('members')
+      .exec(function (err, team) {
+        res.render("teams/show", {
+          title: team.name,
+          team
+        });
+      });
+  } else {
+    res.redirect("/");
   }
 }

@@ -4,7 +4,11 @@
         <% teams.forEach(function(t) { %>
             <div class="team-preview">
                 <h2><%= t.name %></h2>
+                <% if (!t.members.length) { %>
                 <a class="button delete-btn" href="#">Delete Team</a>
+                <% } else { %>
+                    <p class="delete-btn"><%= t.members.length %> Members</p>
+                    <% } %>
                 <a class="button detail-btn" href="/users/teams/<%= t._id %>">See Details</a>
             </div>
         <% }); %>
