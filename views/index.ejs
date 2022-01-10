@@ -1,3 +1,7 @@
 <%- include('partials/header') %>
-<h2>Please log in to continue.</h2>
+    <% if (user) { %>
+        <a href="/user">Get Started!</a>
+  <% } else { %>
+        <h2>Please login to continue.</h2>
+  <% } %>
 <%- include('partials/footer') %>
