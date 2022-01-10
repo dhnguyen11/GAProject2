@@ -9,6 +9,7 @@ var methodOverride = require('method-override');
 
 var indexRoutes = require('./routes/index');
 var usersRoutes = require('./routes/users');
+var teamsRoutes = require('./routes/teams');
 
 // load the env vars
 require('dotenv').config();
@@ -54,6 +55,7 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/users', usersRoutes);
+app.use('/', teamsRoutes)
 
 
 // invalid request, send 404 page

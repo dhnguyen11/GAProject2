@@ -1,16 +1,13 @@
-const Team = require('../models/team');
-const User = require('../models/user');
+const User = require("../models/user");
 
 module.exports = {
-    landing,
-    newTeam
-}
+  landing
+};
 
 function landing(req, res) {
-    console.log(req.params.id);
-    res.render("users/index", { title:"Test" });
-}
-
-function newTeam(req, res) {
-    res.render("teams/new", { title:"New Team" })
+  if (req.user) {
+    res.render("users/index", { title: "Welcome to Teambuilder!", user: req.user });
+  } else {
+    res.redirect("/");
+  }
 }
