@@ -5,7 +5,7 @@
             <div class="team-preview">
                 <h2><%= t.name %></h2>
                 <% t.members.forEach(function(m) { %>
-                    <img src="<%= m.url %>">
+                    <img class="member-preview" src="<%= m.url %>">
                 <% }); %>
                 <% if (!t.members.length) { %>
                 <a class="button delete-btn" href="#">Delete Team</a>

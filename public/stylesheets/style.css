@@ -63,7 +63,7 @@ body > main {
   display: grid;
   min-height: 200px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: 
     "name name name"
     "member1 member2 member3"
@@ -93,8 +93,15 @@ body > main {
 .delete-btn {
   grid-area: delete;
   text-align: center;
+  place-self: center;
 }
 
 .detail-btn{
   grid-area: detail;
+}
+
+.member-preview {
+  place-self: center;
+  max-height: 50px;
+  object-fit: none;
 }
