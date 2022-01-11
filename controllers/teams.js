@@ -38,13 +38,15 @@ function create(req, res) {
 
 function index(req, res) {
   if (req.user) {
-    Team.find({ creator: req.user._id }, function (err, teams) {
+    Team.find({ creator: req.user._id })
+    .populate("members")
+    .exec(function(err, teams){
       res.render("teams/index", {
         title: "My Teams",
         user: req.user,
         teams: teams,
       });
-    });
+    })
   } else {
     res.redirect("/");
   }
@@ -63,7 +65,6 @@ function show(req, res) {
               const str = p.name.charAt(0).toUpperCase() + p.name.slice(1)
               p.capName = str;
             })
-            console.log(urls)
             res.render("teams/show", {
               title: team.name,
               team,

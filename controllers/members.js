@@ -41,39 +41,44 @@ function newMember(req, res) {
             moves: baseMoves,
             team,
             title: `Add Member`,
-            user: req.user
+            user: req.user,
           });
         }
       );
     });
-  }
-  else {
-      res.redirect("/");
+  } else {
+    res.redirect("/");
   }
 }
 
 function create(req, res) {
   if (req.user) {
-    Team.findById(req.params.teamId, function(err, team) {
-        req.body.moves = [];
-        req.body.moves.push(req.body.move1);
-        req.body.moves.push(req.body.move2);
-        req.body.moves.push(req.body.move3);
-        req.body.moves.push(req.body.move4);
-        delete req.body.move1;
-        delete req.body.move2;
-        delete req.body.move3;
-        delete req.body.move4;
-        req.body.name = req.params.name;
-        Member.create(req.body, function (err, member) {
+    Team.findById(req.params.teamId, function (err, team) {
+      req.body.moves = [];
+      req.body.moves.push(req.body.move1);
+      req.body.moves.push(req.body.move2);
+      req.body.moves.push(req.body.move3);
+      req.body.moves.push(req.body.move4);
+      delete req.body.move1;
+      delete req.body.move2;
+      delete req.body.move3;
+      delete req.body.move4;
+      req.body.name = req.params.name;
+      request(
+        `${process.env.BASE_URL}pokemon/${req.params.name}`,
+        function (err, response, body) {
+          const memberData = JSON.parse(body);
+          req.body.url = memberData.sprites.front_default;
+          Member.create(req.body, function (err, member) {
             team.members.push(member._id);
-            team.save(function(err) {
-              res.redirect(`/${req.user._id}/teams`)
-            })
-        })
-    })
-  } 
-  else {
+            team.save(function (err) {
+              res.redirect(`/${req.user._id}/teams`);
+            });
+          });
+        }
+      );
+    });
+  } else {
     res.redirect("/");
   }
 }

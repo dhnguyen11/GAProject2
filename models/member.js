@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const memberSchema = new Schema({
     name: String,
-    moves: [String]
+    moves: [String],
+    url: String
 }, {
     timestamps: true
 })
