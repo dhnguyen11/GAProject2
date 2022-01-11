@@ -2,6 +2,8 @@ const Team = require("../models/team");
 const User = require("../models/user");
 const Member = require("../models/member");
 
+const request = require("request");
+
 module.exports = {
   new: newTeam,
   create,
@@ -52,12 +54,23 @@ function show(req, res) {
   if (req.user) {
     console.log(req.params);
     Team.findById(req.params.id)
-      .populate('members')
+      .populate("members")
       .exec(function (err, team) {
-        res.render("teams/show", {
-          title: team.name,
-          team
-        });
+        request(
+          `${process.env.BASE_URL}${process.env.GENERATION_URL}`,
+          function (err, response, body) {
+            const resData = JSON.parse(body);
+            resData.pokemon_species.forEach( (p) => {
+              const str = p.name.charAt(0).toUpperCase() + p.name.slice(1)
+              p.capName = str;
+            })
+            res.render("teams/show", {
+              title: team.name,
+              team,
+              pokemon: resData.pokemon_species
+            });
+          }
+        );
       });
   } else {
     res.redirect("/");
