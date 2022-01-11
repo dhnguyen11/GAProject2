@@ -66,7 +66,8 @@ function show(req, res) {
             res.render("teams/show", {
               title: team.name,
               team,
-              pokemon: resData.pokemon_species
+              pokemon: resData.pokemon_species,
+              user: req.user
             });
           }
         );
