@@ -10,7 +10,7 @@
     <% } %>
 </div>
 <% if (team.members.length < 6) { %>
-    <form id="add-member" action="/users/teams/<%= team._id %>/members" method="POST">
+    <form id="add-member" action="/users/teams/<%= team._id %>/members" method="GET">
         <select name="name">
             <%- pokemon.map(p =>`
             <option value="${p.name}">${p.capName}</option>

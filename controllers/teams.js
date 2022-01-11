@@ -52,7 +52,6 @@ function index(req, res) {
 
 function show(req, res) {
   if (req.user) {
-    console.log(req.params);
     Team.findById(req.params.id)
       .populate("members")
       .exec(function (err, team) {
