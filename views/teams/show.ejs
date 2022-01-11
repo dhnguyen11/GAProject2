@@ -10,11 +10,11 @@
     <% } %>
 </div>
 <% if (team.members.length < 6) { %>
-    <form id="add-member" action="/users/teams/<%= team._id %>/members" method="GET">
+    <form id="add-member" action="/users/teams/<%= team._id %>/members" method="POST">
         <select name="name">
             <%- pokemon.map(p =>`
             <option value="${p.name}">${p.capName}</option>
-            ` ) %>
+            ` ).join('') %>
         </select>
         <button type="submit">Create Member</button>
     </form>

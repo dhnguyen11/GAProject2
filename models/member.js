@@ -4,9 +4,7 @@ const Schema = mongoose.Schema;
 const memberSchema = new Schema({
     index: Number,
     name: String,
-    moves: [String],
-    ability: String,
-    item: String
+    moves: [String]
 }, {
     timestamps: true
 })
