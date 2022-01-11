@@ -92,6 +92,7 @@ body > main {
 
 .delete-btn {
   grid-area: delete;
+  text-align: center;
 }
 
 .detail-btn{

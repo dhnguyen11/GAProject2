@@ -63,11 +63,12 @@ function show(req, res) {
               const str = p.name.charAt(0).toUpperCase() + p.name.slice(1)
               p.capName = str;
             })
+            console.log(urls)
             res.render("teams/show", {
               title: team.name,
               team,
               pokemon: resData.pokemon_species,
-              user: req.user
+              user: req.user,
             });
           }
         );
