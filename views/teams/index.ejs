@@ -9,12 +9,12 @@
                 <% } else { %>
                     <p class="delete-btn"><%= t.members.length %> Members</p>
                     <% } %>
-                <a class="button detail-btn" href="/users/teams/<%= t._id %>">See Details</a>
+                <a class="button detail-btn" href="/teams/<%= t._id %>">See Details</a>
             </div>
         <% }); %>
     <% } else { %>
         <h2>No Teams Yet</h2>
     <% } %>
 </div>
-<a href="/users/<%= user._id %>/teams/new">Create A Team</a>
+<a href="/<%= user._id %>/teams/new">Create A Team</a>
 <%- include('../partials/footer') %>

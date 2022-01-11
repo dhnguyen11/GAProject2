@@ -6,7 +6,7 @@ module.exports = {
 
 function landing(req, res) {
   if (req.user) {
-    res.render("users/index", { title: "Welcome to Teambuilder!", user: req.user });
+    res.redirect(`/${req.user._id}/teams`);
   } else {
     res.redirect("/");
   }

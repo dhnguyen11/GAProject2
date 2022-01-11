@@ -28,7 +28,7 @@ function create(req, res) {
         req.body.name = "Team";
       }
       Team.create(req.body, function (err, teamDocument) {
-        res.redirect(`/users/${req.params.userId}/teams`);
+        res.redirect(`/${req.params.userId}/teams`);
       });
     });
   } else {

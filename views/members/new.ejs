@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
-<form id="new-form" action="/users/<%= user._id %>/teams/new" method="POST">
-    <label>Team Name</label>
-    <input type="text" name="name">
-    <input type="submit" value="Add Team">
+<form id="new-form" action="<%= user._id %>/teams/new" method="POST">
+    <label class="pkmn-name" name="name"><%= capName %></label>
+    <label class="moves-list">Moves</label>
+    
 </form>
 <%- include('../partials/footer') %>
