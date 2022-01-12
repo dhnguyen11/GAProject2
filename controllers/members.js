@@ -8,7 +8,7 @@ module.exports = {
   create,
   edit,
   update,
-  delete: deleteMember
+  delete: deleteMember,
 };
 
 function newMember(req, res) {
@@ -146,13 +146,21 @@ function update(req, res) {
 }
 
 function deleteMember(req, res) {
-  Member.deleteOne({ _id: req.params.id}, function(err) {
-    Team.findOneAndUpdate({_id: req.params.teamId}, {
-      $pull: {
-        members: req.params.id
-      }
-    }, function(err, team) {
-      res.redirect(`/${req.user._id}/teams`);
-    })
-  });
+  if (req.user) {
+    Member.deleteOne({ _id: req.params.id }, function (err) {
+      Team.findOneAndUpdate(
+        { _id: req.params.teamId },
+        {
+          $pull: {
+            members: req.params.id,
+          },
+        },
+        function (err, team) {
+          res.redirect(`/${req.user._id}/teams`);
+        }
+      );
+    });
+  } else {
+    res.redirect("/");
+  }
 }

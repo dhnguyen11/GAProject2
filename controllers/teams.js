@@ -9,7 +9,7 @@ module.exports = {
   create,
   index,
   show,
-  delete: deleteTeam
+  delete: deleteTeam,
 };
 
 function newTeam(req, res) {
@@ -40,14 +40,14 @@ function create(req, res) {
 function index(req, res) {
   if (req.user) {
     Team.find({ creator: req.user._id })
-    .populate("members")
-    .exec(function(err, teams){
-      res.render("teams/index", {
-        title: "My Teams",
-        user: req.user,
-        teams: teams,
+      .populate("members")
+      .exec(function (err, teams) {
+        res.render("teams/index", {
+          title: "My Teams",
+          user: req.user,
+          teams: teams,
+        });
       });
-    })
   } else {
     res.redirect("/");
   }
@@ -62,10 +62,10 @@ function show(req, res) {
           `${process.env.BASE_URL}${process.env.GENERATION_URL}`,
           function (err, response, body) {
             const resData = JSON.parse(body);
-            resData.pokemon_species.forEach( (p) => {
-              const str = p.name.charAt(0).toUpperCase() + p.name.slice(1)
+            resData.pokemon_species.forEach((p) => {
+              const str = p.name.charAt(0).toUpperCase() + p.name.slice(1);
               p.capName = str;
-            })
+            });
             team.members.forEach((t) => {
               const capName = t.name.charAt(0).toUpperCase() + t.name.slice(1);
               t.capName = capName;
@@ -77,8 +77,8 @@ function show(req, res) {
                 }
                 moveName = words.join(" ");
                 t.capMoves.push(moveName);
-              })
-            })
+              });
+            });
             res.render("teams/show", {
               title: team.name,
               team,
@@ -93,8 +93,12 @@ function show(req, res) {
   }
 }
 
-function deleteTeam(req, res){
-  Team.deleteOne({_id: req.params.id}, function(err) {
-    res.redirect(`/${req.params.userId}/teams`);
-  })
+function deleteTeam(req, res) {
+  if (req.user) {
+    Team.deleteOne({ _id: req.params.id }, function (err) {
+      res.redirect(`/${req.params.userId}/teams`);
+    });
+  } else {
+    res.redirect("/");
+  }
 }
