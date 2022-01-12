@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 <form id="new-pokemon" action="/<%= user._id %>/teams/new" method="POST">
-    <label class="pkmn">Add Team</label>
-    <input type="text" name="name">
-    <input type="submit" value="Add Team">
+  <label class="pkmn">Add Team</label>
+  <input type="text" name="name" />
+  <input type="submit" value="Add Team" />
 </form>
 <a href="/<%= user._id %>/teams" class="button">Back to Teams</a>
 <%- include('../partials/footer') %>

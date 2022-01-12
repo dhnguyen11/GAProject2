@@ -1,28 +1,32 @@
 <%- include('../partials/header') %>
-<form id="new-form" action="/teams/<%= team._id %>/members/<%= pkmnName %>" method="POST">
-    <label class="pkmn-name"><%= capName %></label>
-    <label class="moves-list">Moves</label>
-    <select name="move1">
-        <%- moves.map(m => `
-        <option value="${m.name}">${m.capName}</option>
-        ` ).join('') %>
-    </select>
-    <select name="move2">
-        <%- moves.map(m => `
-        <option value="${m.name}">${m.capName}</option>
-        ` ).join('') %>
-    </select>
-    <select name="move3">
-        <%- moves.map(m => `
-        <option value="${m.name}">${m.capName}</option>
-        ` ).join('') %>
-    </select>
-    <select name="move4">
-        <%- moves.map(m => `
-        <option value="${m.name}">${m.capName}</option>
-        ` ).join('') %>
-    </select>
-    <button type="submit">Add Pokemon</button>
+<form
+  id="new-form"
+  action="/teams/<%= team._id %>/members/<%= pkmnName %>"
+  method="POST"
+>
+  <label class="pkmn-name"><%= capName %></label>
+  <label class="moves-list">Moves</label>
+  <select name="move1">
+    <%- moves.map(m => `
+    <option value="${m.name}">${m.capName}</option>
+    ` ).join('') %>
+  </select>
+  <select name="move2">
+    <%- moves.map(m => `
+    <option value="${m.name}">${m.capName}</option>
+    ` ).join('') %>
+  </select>
+  <select name="move3">
+    <%- moves.map(m => `
+    <option value="${m.name}">${m.capName}</option>
+    ` ).join('') %>
+  </select>
+  <select name="move4">
+    <%- moves.map(m => `
+    <option value="${m.name}">${m.capName}</option>
+    ` ).join('') %>
+  </select>
+  <button type="submit">Add Pokemon</button>
 </form>
 
 <a href="/<%= user._id %>/teams" class="button">Back to Teams</a>

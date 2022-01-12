@@ -1,35 +1,37 @@
 <%- include('../partials/header') %>
 <div id="member-table">
-    <% if (team.members.length) { %>
-        <% team.members.forEach(function(m) { %>
-            <div class="member-card">
-                <div class="member-title">
-                <img src=<%= m.url %>>
-                <h2><%= m.capName %></h2>
-                <img src=<%= m.url %>>
-                </div>
-                <% m.capMoves.forEach(function(mov) { %>
-                    <h3><%= mov %></h3>
-                <% }) %>
-                <form class="delete-btn" action="/teams/<%= team._id %>/members/<%= m._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Delete</button>
-                </form>
-                <a class="button edit-btn" href="/teams/members/<%= m._id %>">Edit</a>
-            </div>
-        <% }); %>
-    <% } else { %>
-        <h2>No Members Yet</h2>
-    <% } %>
+  <% if (team.members.length) { %> <% team.members.forEach(function(m) { %>
+  <div class="member-card">
+    <div class="member-title">
+      <img src="<%" ="m.url" % />>
+      <h2><%= m.capName %></h2>
+      <img src="<%" ="m.url" % />>
+    </div>
+    <% m.capMoves.forEach(function(mov) { %>
+    <h3><%= mov %></h3>
+    <% }) %>
+    <form
+      class="delete-btn"
+      action="/teams/<%= team._id %>/members/<%= m._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button type="submit">Delete</button>
+    </form>
+    <a class="button edit-btn" href="/teams/members/<%= m._id %>">Edit</a>
+  </div>
+  <% }); %> <% } else { %>
+  <h2>No Members Yet</h2>
+  <% } %>
 </div>
 <% if (team.members.length < 6) { %>
-    <form id="add-member" action="/teams/<%= team._id %>/members" method="GET">
-        <select name="name">
-            <%- pokemon.map(p =>`
-            <option value="${p.name}">${p.capName}</option>
-            ` ).join('') %>
-        </select>
-        <button type="submit">Create Member</button>
-    </form>
+<form id="add-member" action="/teams/<%= team._id %>/members" method="GET">
+  <select name="name">
+    <%- pokemon.map(p =>`
+    <option value="${p.name}">${p.capName}</option>
+    ` ).join('') %>
+  </select>
+  <button type="submit">Create Member</button>
+</form>
 <% } %>
 <a href="/<%= user._id %>/teams" class="button">Back to Teams</a>
 <%- include('../partials/footer') %>

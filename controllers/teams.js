@@ -9,6 +9,7 @@ module.exports = {
   create,
   index,
   show,
+  delete: deleteTeam
 };
 
 function newTeam(req, res) {
@@ -90,4 +91,10 @@ function show(req, res) {
   } else {
     res.redirect("/");
   }
+}
+
+function deleteTeam(req, res){
+  Team.deleteOne({_id: req.params.id}, function(err) {
+    res.redirect(`/${req.params.userId}/teams`);
+  })
 }
