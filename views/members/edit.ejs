@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<form id="edit-form" action="/teams/members/<%= member._id %>/<%= member.name %>?_method=PUT" method="POST">
+    <label class="moves-list">Moves</label>
+    <select name="move1">
+        <%- moves.map(m => `
+        <option value="${m.name}">${m.capName}</option>
+        ` ).join('') %>
+    </select>
+    <select name="move2">
+        <%- moves.map(m => `
+        <option value="${m.name}">${m.capName}</option>
+        ` ).join('') %>
+    </select>
+    <select name="move3">
+        <%- moves.map(m => `
+        <option value="${m.name}">${m.capName}</option>
+        ` ).join('') %>
+    </select>
+    <select name="move4">
+        <%- moves.map(m => `
+        <option value="${m.name}">${m.capName}</option>
+        ` ).join('') %>
+    </select>
+    <button type="submit">Edit Member</button>
+</form>
+
+<a href="/<%= user._id %>/teams">Back to Teams</a>
+<%- include('../partials/footer') %>
