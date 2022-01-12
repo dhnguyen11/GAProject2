@@ -7,6 +7,6 @@ router.get('/teams/:teamId/members', membersCtrl.new);
 router.post('/teams/:teamId/members/:name', membersCtrl.create);
 router.get('/teams/members/:id', membersCtrl.edit);
 router.put('/teams/members/:id', membersCtrl.update);
-router.delete('/teams/members/:id', membersCtrl.deleteOne);
+router.delete('/teams/members/:id', membersCtrl.delete);
 
 module.exports = router;

@@ -8,7 +8,7 @@ module.exports = {
   create,
   edit,
   update,
-  deleteOne
+  delete: deleteMember
 };
 
 function newMember(req, res) {
@@ -145,6 +145,7 @@ function update(req, res) {
   }
 }
 
-function deleteOne(req, res) {
-  res.send("hitting route");
+function deleteMember(req, res) {
+  Member.deleteOne(req.params.id);
+  res.redirect(`/${req.user._id}/teams`);
 }
