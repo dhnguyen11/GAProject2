@@ -1,6 +1,6 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header') %> <% if (teams.length) { %> <%
+teams.forEach(function(t) { %>
 <div id="team-table">
-  <% if (teams.length) { %> <% teams.forEach(function(t) { %>
   <div class="team-preview">
     <h2><%= t.name %></h2>
     <% t.members.forEach(function(m) { %>
@@ -18,9 +18,9 @@
     <% } %>
     <a class="button detail-btn" href="/teams/<%= t._id %>">See Details</a>
   </div>
-  <% }); %> <% } else { %>
-  <h2>No Teams Yet</h2>
-  <% } %>
 </div>
+<% }); %> <% } else { %>
+<h2>No Teams Yet</h2>
+<% } %>
 <a href="/<%= user._id %>/teams/new" class="button">Create A Team</a>
 <%- include('../partials/footer') %>
