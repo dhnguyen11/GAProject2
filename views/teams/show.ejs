@@ -1,7 +1,19 @@
 <%- include('../partials/header') %>
 <div id="member-table">
     <% if (team.members.length) { %>
-        <% team.members.forEach(function(u) { %>
+        <% team.members.forEach(function(m) { %>
+            <div class="member-card">
+                <div class="member-title">
+                <img src=<%= m.url %>>
+                <h2><%= m.capName %></h2>
+                <img src=<%= m.url %>>
+                </div>
+                <% m.capMoves.forEach(function(mov) { %>
+                    <h3><%= mov %></h3>
+                <% }) %>
+                <a class="button delete-btn" href="#">Delete</a>
+                <a class="button edit-btn" href="#">Edit</a>
+            </div>
         <% }); %>
     <% } else { %>
         <h2>No Members Yet</h2>

@@ -88,6 +88,7 @@ body > main {
   display: inline-block;
   font-size: 16px;
   place-self: center;
+  min-width: 100px;
 }
 
 .delete-btn {
@@ -100,8 +101,49 @@ body > main {
   grid-area: detail;
 }
 
+img {
+  max-height: 90px;
+  object-fit: none;
+}
+
 .member-preview {
   place-self: center;
   max-height: 90px;
   object-fit: none;
+}
+
+#member-table {
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-gap: 10px;
+}
+
+.member-card {
+  border: 1px solid black;
+  place-self: stretch;
+  display: grid;
+  min-height: 360px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+    "name name"
+    "member1 member2"
+    "member3 member4"
+    "delete edit"
+}
+
+.member-card > .member-title {
+  grid-area: name;
+  place-self: center;
+  text-align: center;
+  display: flex;
+  align-items: center
+}
+
+.member-card > h3 {
+  place-self: center;
+}
+
+.edit-btn {
+  grid-area: edit;
 }

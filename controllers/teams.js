@@ -65,6 +65,19 @@ function show(req, res) {
               const str = p.name.charAt(0).toUpperCase() + p.name.slice(1)
               p.capName = str;
             })
+            team.members.forEach((t) => {
+              const capName = t.name.charAt(0).toUpperCase() + t.name.slice(1);
+              t.capName = capName;
+              t.capMoves = [];
+              t.moves.forEach((m) => {
+                const words = m.split("-");
+                for (let i = 0; i < words.length; i++) {
+                  words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+                }
+                moveName = words.join(" ");
+                t.capMoves.push(moveName);
+              })
+            })
             res.render("teams/show", {
               title: team.name,
               team,
