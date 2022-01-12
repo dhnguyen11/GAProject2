@@ -53,7 +53,7 @@ body > main {
 
 #team-table {
   display: grid;
-  grid-template-columns: 350px 350px 350px;
+  grid-template-columns: 400px 400px 400px;
   grid-gap: 10px;
 }
 
@@ -61,7 +61,7 @@ body > main {
   border: 1px solid black;
   place-self: stretch;
   display: grid;
-  min-height: 200px;
+  min-height: 360px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: 
@@ -102,6 +102,6 @@ body > main {
 
 .member-preview {
   place-self: center;
-  max-height: 50px;
+  max-height: 90px;
   object-fit: none;
 }
