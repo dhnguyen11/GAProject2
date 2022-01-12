@@ -146,6 +146,13 @@ function update(req, res) {
 }
 
 function deleteMember(req, res) {
-  Member.deleteOne(req.params.id);
-  res.redirect(`/${req.user._id}/teams`);
+  Member.deleteOne({ _id: req.params.id}, function(err) {
+    Team.findOneAndUpdate({_id: req.params.teamId}, {
+      $pull: {
+        members: req.params.id
+      }
+    }, function(err, team) {
+      res.redirect(`/${req.user._id}/teams`);
+    })
+  });
 }
