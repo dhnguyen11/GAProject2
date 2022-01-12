@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+h2 {
+  text-align: center;
+}
+
 body > nav {
   grid-area: nav;
   background-color: #ee1515;

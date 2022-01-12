@@ -1,11 +1,11 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header') %> <% if (team.members.length) { %>
 <div id="member-table">
-  <% if (team.members.length) { %> <% team.members.forEach(function(m) { %>
+  <% team.members.forEach(function(m) { %>
   <div class="member-card">
     <div class="member-title">
-      <img src="<%" ="m.url" % />>
+      <img src=<%= m.url %>>
       <h2><%= m.capName %></h2>
-      <img src="<%" ="m.url" % />>
+      <img src=<%= m.url %>>
     </div>
     <% m.capMoves.forEach(function(mov) { %>
     <h3><%= mov %></h3>
@@ -19,11 +19,10 @@
     </form>
     <a class="button edit-btn" href="/teams/members/<%= m._id %>">Edit</a>
   </div>
-  <% }); %> <% } else { %>
-  <h2>No Members Yet</h2>
-  <% } %>
 </div>
-<% if (team.members.length < 6) { %>
+<% }); %> <% } else { %>
+<h2 class="member-title">No Members Yet</h2>
+<% } %> <% if (team.members.length < 6) { %>
 <form id="add-member" action="/teams/<%= team._id %>/members" method="GET">
   <select name="name">
     <%- pokemon.map(p =>`
