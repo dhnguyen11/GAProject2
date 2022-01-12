@@ -6,6 +6,7 @@ const membersCtrl = require('../controllers/members');
 router.get('/teams/:teamId/members', membersCtrl.new);
 router.post('/teams/:teamId/members/:name', membersCtrl.create);
 router.get('/teams/members/:id', membersCtrl.edit);
-router.put('/teams/members/:id/:name', membersCtrl.update);
+router.put('/teams/members/:id', membersCtrl.update);
+router.delete('/teams/members/:id', membersCtrl.deleteOne);
 
 module.exports = router;

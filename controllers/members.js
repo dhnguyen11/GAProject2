@@ -7,7 +7,8 @@ module.exports = {
   new: newMember,
   create,
   edit,
-  update
+  update,
+  deleteOne
 };
 
 function newMember(req, res) {
@@ -126,17 +127,24 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-  console.log(req.body, "<- req.body");
-  console.log(req.params, "<- req.params");
-  console.log(req.query, "<- req.query");
-  req.body.moves = [];
-  req.body.moves.push(req.body.move1);
-  req.body.moves.push(req.body.move2);
-  req.body.moves.push(req.body.move3);
-  req.body.moves.push(req.body.move4);
-  delete req.body.move1;
-  delete req.body.move2;
-  delete req.body.move3;
-  delete req.body.move4;
+  if (req.user) {
+    Member.findById(req.params.id, function (err, member) {
+      while (member.moves.length) {
+        member.moves.pop();
+      }
+      member.moves.push(req.body.move1);
+      member.moves.push(req.body.move2);
+      member.moves.push(req.body.move3);
+      member.moves.push(req.body.move4);
+      member.save(function (err) {
+        res.redirect(`/${req.user._id}/teams`);
+      });
+    });
+  } else {
+    res.redirect("/");
+  }
+}
+
+function deleteOne(req, res) {
   res.send("hitting route");
 }

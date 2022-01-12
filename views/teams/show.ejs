@@ -11,7 +11,9 @@
                 <% m.capMoves.forEach(function(mov) { %>
                     <h3><%= mov %></h3>
                 <% }) %>
-                <a class="button delete-btn" href="#">Delete</a>
+                <form class="delete-btn" action="/teams/members/<%= m._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
                 <a class="button edit-btn" href="/teams/members/<%= m._id %>">Edit</a>
             </div>
         <% }); %>

@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<form id="edit-form" action="/teams/members/<%= member._id %>/<%= member.name %>?_method=PUT" method="POST">
+<form id="edit-form" action="/teams/members/<%= member._id %>?_method=PUT" method="POST">
     <label class="moves-list">Moves</label>
     <select name="move1">
         <%- moves.map(m => `
