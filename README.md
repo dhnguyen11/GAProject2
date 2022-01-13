@@ -5,6 +5,10 @@ Create teams for Pokemon battling in the original Red, Blue, and Yellow versions
 of the Pokemon games!  All 151 pokemon included!
 Create teams for friendly or competitive use!
 
+Add, edit, or remove team members from each of your teams to experiment with different
+possibilities.  Each pokemon can have any move that was available to it in the original
+games, so experiment to your heart's content!
+
 ## Screenshots 
 
 Landing page:
