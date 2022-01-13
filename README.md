@@ -1,4 +1,6 @@
 # Pokemon RBY Teambuilder
+An app by David Nguyen
+
 
 
 
