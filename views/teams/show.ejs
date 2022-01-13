@@ -18,11 +18,11 @@
       <button type="submit">Delete</button>
     </form>
     <a class="button edit-btn" href="/teams/members/<%= m._id %>">Edit</a>
-  </div>
-</div>
-<% }); %> <% } else { %>
-<h2 class="member-title">No Members Yet</h2>
-<% } %> <% if (team.members.length < 6) { %>
+  </div> 
+  <% }); %> <% } else { %>
+  <h2 class="member-title">No Members Yet</h2>
+  <% } %>
+</div> <% if (team.members.length < 6) { %>
 <form id="add-member" action="/teams/<%= team._id %>/members" method="GET">
   <select name="name">
     <%- pokemon.map(p =>`
@@ -32,5 +32,5 @@
   <button type="submit">Create Member</button>
 </form>
 <% } %>
-<a href="/<%= user._id %>/teams" class="button">Back to Teams</a>
+<a href="/<%= user._id %>/teams" class="button bottom-button">Back to Teams</a>
 <%- include('../partials/footer') %>

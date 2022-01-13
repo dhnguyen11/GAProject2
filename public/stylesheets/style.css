@@ -93,6 +93,13 @@ body > main {
   font-size: 16px;
   place-self: center;
   min-width: 100px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: white;
+  color: #ee1515;
+  font-weight: bold;
 }
 
 .delete-btn {
@@ -165,4 +172,19 @@ button {
   place-self: center;
   min-width: 100px;
   cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: white;
+  color: #ee1515;
+  font-weight: bold;
+}
+
+.bottom-button {
+  margin-top: 10px;
+}
+
+#new-team {
+  display: grid;
 }
