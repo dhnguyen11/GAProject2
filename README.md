@@ -20,18 +20,25 @@ Teams page:
 
 ## Technologies Used
 Passport
+
 Express
+
 MongoDB
+
 Mongoose
+
 Javascript, CSS, EJS
 
 Powered by PokeAPI
+
 Login powered by Google OAuth
+
 Deployed with Heroku
 
 ## Getting Started
 Link to application:
 https://rby-teambuilder.herokuapp.com/
+
 Link to project planning:
 https://trello.com/b/b3LmWWLG/ga-project-2
 
