@@ -188,3 +188,7 @@ button:hover {
 #new-team {
   display: grid;
 }
+
+#add-member {
+  margin-top: 10px;
+}

@@ -1,6 +1,7 @@
-<%- include('../partials/header') %> <% if (teams.length) { %> <%
-teams.forEach(function(t) { %>
+<%- include('../partials/header') %> 
+<% if (teams.length) { %> 
 <div id="team-table">
+<% teams.forEach(function(t) { %>
   <div class="team-preview">
     <h2><%= t.name %></h2>
     <% t.members.forEach(function(m) { %>
