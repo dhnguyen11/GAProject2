@@ -27,6 +27,8 @@ MongoDB
 
 Mongoose
 
+Node.js
+
 Javascript, CSS, EJS
 
 Powered by PokeAPI
