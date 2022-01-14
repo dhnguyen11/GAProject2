@@ -48,3 +48,5 @@ member multiple times in the same team - this is because in the games, you
 cannot have the same Pokemon twice on your team in a player-vs-player battle.
 
 Add functionality to create teams for games other than Generation 1 games.
+
+Add functionality to view other users' teams and leave comments
